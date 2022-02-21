@@ -1,0 +1,754 @@
+TypeScript:
+===========
+TypeScript is a programming language,which is developed based on javascript.
+
+TypeScript is a superset of javascript,which adds datatypes,classes,interface and other features
+
+TypeScript= javascript+DataTypes+classess+interfaces+misc. 
+Concepts(Arrow functions+MultilineStrings+String interpolation+Destructing+modules..et)
+
+TypeScript is built on the top of javascript. that means all code of javascript works  as-it-is in TypeScript, but in
+TypeScript, we can additionally use datatypes,classess,interfaces etc..
+
+TypeScript is developed by Microsoft Corporation in 2012
+
+Features of TypeScript:
+-----------------------
+TypeScript is a general purpose programming language
+
+TypeScript doesn't stick to cilent side programming/server side programming.TypeScript can be used
+in  client side program development , Using Angular Framework. It can be used in server side program 
+development, using nodejs platform
+
+TypeScript requires to be used in modern code editiors /IDE's, Visual Studio Code,Sublimetext,webstorm,eclipse  etc.
+
+Note:
+-----
+Browser doesn't support TypeScript directly. TypeScript code cannot be executed directly by the browser.
+So TypeScript code should be converted into javascript code  and we have to import javascript language file(.js)
+into the webpage. Browser execute javascript.
+
+We use TypeScript Compiler" (tsc) to compile the filname.ts to filename.js
+
+filesname.ts ===>TypescriptCompiler  ==> filename.js
+                  tsc filename.ts
+
+
+Step to prepare first example in TypeScript:
+==============================================
+
+1. Installing Nodejs
+
+2. Install TypeScript
+
+3. Create Application Folder
+
+4. Installing the code editor. Visual Studio Code
+
+5. Create TypeScript Program
+
+6. Compile the typescript program
+
+7. Execute the typescript program
+
+
+
+Varibles:
+==========
+
+Variable is a named memory location in ram , to store a value at runtime
+
+syntax: var variableName:dataType=value;
+
+Example: var a:number=100;
+
+
+Tyscript supports "optional static typing". That means it is optional to specify datatype
+for the variable in Typescript
+
+Static Typing:- If you specify the datatype for the variable, it is not possible assign other data type of value into te variable
+ 
+Dynamic Typing :- IF you dont specify the datatype  for the varible, we can assign any type of  data into the variables
+
+ex:
+---
+var a;
+
+
+Datatypes:
+================
+number:-All types of numbers integer/floating-point numbers Ex: 10, 10.234
+
+string:- Collection of characters in double quotes or single quotes. Ex='hello',"hello"
+
+boolean :-true or false
+
+any:Any type of value
+
+
+Varibles and Datatype-example:
+---------------------------------
+
+datatypes.ts
+---------------
+
+var a:number=10;
+var b:string="welcome"
+var c:boolean=true
+var d:any=100.00
+
+
+console.log(a)
+console.log(b)
+console.log(c)
+console.log(d)
+
+
+Object:
+-------
+Object is any thing which exists phyiscally in realworld
+which have some properties and behaviour.
+
+we can presents object properties in the form of : variables
+
+we can present object behaviour : functions(methods)
+
+
+Creating Object:
+------------------
+Object can be created by using "object literal pattern" in TypeScript
+
+Object literal is a collection of properties and functions(methods) that are enclosed with in curly braces {}
+
+syntax:
+-------
+{
+
+ property:value, ///json
+  methodName:function(){
+   }
+}
+
+Reference Variable
+-------------------
+
+The "reference variable" is a variable , that can store the referene of an object
+
+we can access all the properties and methods of the objects by using referance variable
+
+syntax:
+--------
+
+var variableName={
+
+    property:value,
+    methodName:function(){
+   
+
+}
+}
+
+
+objects.ts(object literal)
+-----------
+
+var student={
+ 
+   studentId:1,
+   studentName:"scott",
+   marks:80,
+   getResult:function(){
+
+   if(this.marks>=35){
+
+   return "pass";
+   }
+   else{
+      return "fail";
+   }
+}
+} 
+
+console.log(student.studentId);
+console.log(student.studentName);
+console.log(student.marks);
+console.log(student.getResult());
+
+
+Class:
+======
+"Class" represents a model of the object which defines list properties and methods of the object
+
+Ex:
+---
+Student  class represents structure(list of properties and methods) of every Student object
+
+We can create any no.of objects based on a class. using "new" keyword
+
+
+syntax:
+-------
+class classname{
+
+  //properties;
+   //methods;
+}
+
+
+steps for working with classes and objects
+---------------------------------------------
+
+class classname{
+
+    property:dataype=value
+     
+     methodname(param1:datatype,param2:dataype...):return type{
+
+    code here//
+
+   }
+
+
+}
+
+
+create an Object and Store its address in reference variables:
+---------------------------------------------------------------
+
+var referenceVariable= new classname();
+
+
+
+Example:
+-----------
+
+ex1.ts
+-------
+
+class Student{
+
+ studentId:number;
+ studentName:string;
+ marks:number;
+
+ getResult():string{
+
+   if(this.marks>=35){
+
+   return "pass";   
+}else{
+
+   return "fails";
+  }
+
+}
+
+
+}
+
+
+var s1= new Student();
+
+s1.studentId=1012;
+s1.studentName="smith";
+s1.marks=60;
+
+console.log(s1.studentId);
+console.log(s1.studentName);
+console.log(s1.marks);
+console.log(s1.getResult())
+
+var msg=s1.getResult();
+console.log(msg);
+
+var s2= new Student();
+
+s2.studentId=1021;
+s2.studentName="martin";
+s2.marks=30;
+
+
+console.log(s2.studentId);
+console.log(s2.studentName);
+console.log(s2.marks);
+console.log(s2.getResult())
+
+var msg1=s2.getResult();
+console.log(msg1);
+
+
+Constructor:
+============
+Constructor is special function which is part of the class.
+
+constructor will be called automatically  when we create a new object for the class.
+if you create multiple objexts for the same class, the constructor will be called each time when you create new object.
+
+Constructor is used ot initialize properties of the class
+
+constructor's named should be "constructor"
+
+constructor can receive the arguments, but can't return any value.
+
+Note:
+------
+In typescript, we can't define multiple constructors(should be one constructor)
+
+syntax:
+------
+constructor(param1:datatype,param2:datatype){
+
+codehere;
+}
+
+Example:
+---------
+ex2.ts
+-------
+
+class Student{
+
+ studentId:number;
+ studentName:string;
+ marks:number;
+
+  constructor(studentId:number=0,studentName:string="none",marks:number=0){
+    this.studentId=studentId;
+    this.studentName=studentName;
+     this.marks=marks;
+  }
+
+ getResult():string{
+
+   if(this.marks>=35){
+
+   return "pass";   
+}else{
+
+   return "fails";
+  }
+
+}
+
+
+}
+
+
+//createing object wiht parameter constructor
+var s1= new Student(101,"smith",80);
+
+console.log(s1.studentId);
+console.log(s1.studentName);
+console.log(s1.marks);
+console.log(s1.getResult())
+
+var msg=s1.getResult();
+console.log(msg);
+
+//createing object wiht parameter constructor
+var s2= new Student(1021,"martin",30);
+
+console.log(s2.studentId);
+console.log(s2.studentName);
+console.log(s2.marks);
+console.log(s2.getResult())
+
+var msg1=s2.getResult();
+console.log(msg1);
+
+
+//createing object wiht parameter constructor
+var s3= new Student(); //default values
+
+console.log(s3.studentId);
+console.log(s3.studentName);
+console.log(s3.marks);
+console.log(s3.getResult())
+
+var msg3=s3.getResult();
+console.log(msg3);
+
+
+Inhertiance:
+============
+Inheritance is a concept of extending the parent class, by creating the child class.
+The child class extends parent class. That means all members of parent class will be inherited(sub class) into the child class.
+
+When you create an object for the child class. It included all the members(properties and methods) of both child clasa nd parent class
+
+The "extends"  keywords  is used to create inhertiance
+
+The "super" keyword  represents current parent class. it can be used to call the constructor or methods of parent class.
+
+syntax:
+------------
+
+class parentclass{
+
+codehere
+
+}
+
+
+class childclass extends parentclass{
+
+
+code here
+
+}
+
+
+Example:
+--------
+
+ex3.ts
+--------
+
+class Person{
+
+name:string;
+age:number;
+
+constructor(a:string,b:number){
+   this.name=a;
+   this.age=b;
+}
+
+getDetails():string{
+
+ return this.name+" "+this.age;
+
+
+}
+
+}
+
+
+class Student extends Person{
+
+ studentId:number;
+ marks:number;
+
+  constructor(p:string,q:number,r:number,s:number){
+  super(p,q);
+  this.studentId=r;
+   this.marks=s;
+  
+}
+
+getDetails():string{
+
+
+return this.name+" "+this.age+" "+this.studentId+" "+this.marks;
+
+
+}
+
+}
+
+
+//creating object for child class Student
+
+var s1= new Student("smith",39,201,70);
+
+console.log(s1.name);//from person
+console.log(s1.age);
+
+
+console.log(s1.studentId)//from child(Student)
+console.log(s1.marks);
+
+console.log(s1.getDetails())
+
+
+Access Modifier:
+================
+
+Access Modifiers specify where the members(properties and methods) of a class can be accessible.
+
+That means it specifies whether member of a class is accessible outside the class or not
+
+For each member(property/method) we can specify the access modifiers separately
+
+TypeScript compiler and visual studio code editior shows errors, if a developer try to access the
+member,which is not accessible
+
+"public" is the access modifier for all the members(property/method) in TypeScript
+
+TypeScript supports three access modifers:
+
+ 1)public (default)
+ 2)private
+ 3)protected
+
+1)public(default):
+  The public memeber are accessible anywhere in the program(in the same class and outside the class also).
+
+2)private:
+  The private memebers are accessible with the same class only.
+
+
+3)protected:
+   The protected memeber are accessible with in the same class and also in the corresponding child classes;
+   if you are try to access then outside the same class or child class you will get compile-time error.
+
+
+Ex:
+====
+
+ex4.ts
+------
+class Student{
+
+    public studentId:number=101;
+    private studentName:string="scott";
+    protected marks:number=80;
+    
+    
+    public display():void{
+    
+    console.log("with in the class")//accessible
+    console.log(this.studentId); //accessible
+    console.log(this.studentName);//accessible
+    console.log(this.marks); //accessible
+    
+    }
+    
+    }
+    
+    //var s1= new Student();
+
+    //s1.display();
+   
+    //outside the class
+    class Engineer extends Student{
+      
+    public display2():void{
+        console.log("from outsdie the class with inhertiance")//accessible
+    console.log(this.studentId); //accessible
+    //console.log(this.studentName);//not accessible
+    console.log(this.marks); //accessible
+    }
+
+    }
+
+    var eg = new Engineer();
+    eg.display();
+    eg.display2();
+
+
+    class Test{
+      
+        public display3():void{
+            console.log("from outsdie the class without inhertiance")//accessible
+          var s= new Student();
+         console.log(s.studentId)//accessible
+        // console.log(s.studentName); not accessible
+         //console.log(s.marks); not acccessiblw 
+
+        }
+    
+}
+
+var t= new Test();
+t.display3();
+
+
+
+Interfaces
+==========
+• Interface is the model of a class, which describes the list of properties and methods of a class.
+
+• Interfaces doesn’t contain actual code; contains only list of properties and methods.
+
+• Interfaces doesn’t contain method implementation (method definition); it contains method declaration only, 
+  which defines method access modifier, method name, method arguments and method return type.
+
+• The child class that implements the interface must implement all the methods of the interface; 
+   if not, compile-time error will be shown at child class. 
+   The method name, parameters, return type and access modifier must be same in between "interface method (method at the interface)" and 
+   "class method (method at the class)".
+
+• Interfaces act as a mediator between two or more developers; one developer implements the interface, 
+   other developer creates reference variable for the interface and invokes methods; so interface is common among them.
+
+• The  class can implement the interface with “implements” keyword.
+
+• All the methods of interface is by default, "public".
+
+• One interface can be implemented by multiple classes; One class can implement multiple interfaces.
+
+• We can develop "multiple inheritance" by implementing multiple interfaces at-a-time in the same class.
+
+Steps for development of Interfaces
+==================================
+ Create an interface:
+-------------------------
+interface interfacename
+{
+
+property: datatype;
+…
+method( arguments ): returntype;
+…
+}
+
+
+Create a  class for the interface and implement it:
+===================================================
+class classname implements interfacename
+{
+property: datatype;
+method( arguments ) : returntype
+{
+code here
+}
+}
+
+Example:
+--------
+ex5.ts
+---------
+
+interface IStudent{
+  
+firstName:string;
+lastName:string;
+getFullName():string;  //declaration of  method
+}
+
+
+class Student implements IStudent{
+
+firstName:string;
+lastName:string;
+
+getFullName():string{  //provide the implemenation
+
+return this.firstName+" "+this.lastName;
+
+}
+
+}
+
+//creating  an object
+var st = new Student();
+
+st.firstName="sumit";
+st.lastName="deshpande";
+
+console.log(st.getFullName());
+
+//or
+
+var fn = st.getFullName();
+console.log(fn)
+
+
+Modules
+=======
+• In large scale applications, it is recommended to write each class in a separate file.
+
+• To access the class of one file in other file, we need the concept of "Modules".
+
+• Module is a file (typescript file), which can export one or more classes (or interfaces, enumerations etc.) to other files; 
+  The other files can import classes (or interfaces, enumerations etc.), that are exported by the specific file. 
+  We can't import the classes (or others) that are not exported.
+
+• We can export the class (or others), by using "export" keyword in the source file.
+
+• We can import the class (or others), by using "import" keyword in the destination file.
+
+• To represent:
+1. current folder, we use "./".
+2. sub folder in current folder, we use "./subfolder".
+3. parent folder, we use "../".
+
+
+Steps for development of modules
+=================================
+Export a class in file1.ts
+--------------------------
+export class className1
+{
+…
+}
+
+Import class in file2.ts:
+--------------------------
+import { className1 } from "./file1.ts";
+class className2
+{
+}
+
+
+Employee.ts
+------------
+export class Employee{
+
+   empId:number;
+   empName:string;
+   empSal:number;
+
+   constructor(empId:number,empName:string,empSal:number){
+    this.empId=empId;
+    this.empName=empName;
+     this.empSal=empSal;
+   }
+
+   getEmployeeDetails():void{
+   console.log("empid is :"+this.empId);
+   console.log("empName is :"+this.empName);
+   console.log("empSal is : "+this.empSal);
+  }
+
+}
+
+
+ex6.ts
+=====
+
+import {Employee} from "./Employee";
+
+
+class TestEmp{
+
+    display(){
+ 
+      //createing the object for Employee class
+      var eobj = new Employee(101,"smith",4000);
+      
+       eobj.getEmployeeDetails();
+    }
+ 
+ }
+
+ var temp= new TestEmp();
+
+ temp.display();
+
+
+
+Datatypes:
+=========
+1)Array 
+2)Enum
+
+
+Controlflow:
+============
+1)if..else
+2)switch..case
+3)for --3 examples
+4)while
+5)do..while
+  break 
+  continue
+
+Functions:
+----------
+1)Optinoal Parameter
+2)Default Parameters
+3)Rest Parameters
+4) Arrow functions
+5)Destructing
